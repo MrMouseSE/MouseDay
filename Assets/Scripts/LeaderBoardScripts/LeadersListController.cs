@@ -8,12 +8,28 @@ namespace LeaderBoardScripts
     {
         public LeaderHolderContainer LeaderContainer;
 
-        private List<LeaderHolderContainer> _leaderContainers;
+        private List<LeaderHolderContainer> _leaderContainers = new List<LeaderHolderContainer>();
         private RectTransform _myRectTransform;
         private void Awake()
         {
             _myRectTransform = GetComponent<RectTransform>();
+            FillList();
+        }
+
+        private void FillList()
+        {
             var leaders = LeaderBoardHandler.GetAllLeadersData();
+            StartCoroutine(FillLeadersList(leaders));
+        }
+
+        public void RefillLeadersList()
+        {
+            foreach (var leaderContainer in _leaderContainers)
+            {
+                Destroy(leaderContainer.gameObject);
+            }
+            _leaderContainers.Clear();
+            FillList();
         }
 
         private IEnumerator FillLeadersList(List<LeaderBoardData> leaders)
@@ -32,6 +48,7 @@ namespace LeaderBoardScripts
             leaderString.NameField.text = leader.Name;
             leaderString.ScoreField.text = leader.Score.ToString();
             leaderString.SetTime(leader.Time);
+            _leaderContainers.Add(leaderString);
         }
     }
 }

@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe486d0006d4045469bc60eaf11cec1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyRectTransform: {fileID: 0}
+  MyRectTransform: {fileID: 8210917195531628445}
   StringHeight: 35
   MyAnimation: {fileID: 5721990740456097295}
   NameField: {fileID: 5414372295094734945}
