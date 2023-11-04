@@ -16,18 +16,28 @@ MonoBehaviour:
   - UsableObjectName: Simple
     SpawnChance: 100
     ScoreValue: 1
+    TimeToNextSpawnBoost: 0
     HealthChangeValue: 0
     UsageObjectMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
     UsageObjectMaterial: {fileID: 2100000, guid: a9f8e341f36efe44d905c23dc6079c01, type: 2}
   - UsableObjectName: Rare
-    SpawnChance: 21
+    SpawnChance: 27
     ScoreValue: 7
-    HealthChangeValue: 1
+    TimeToNextSpawnBoost: 0
+    HealthChangeValue: 3
     UsageObjectMesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
     UsageObjectMaterial: {fileID: 2100000, guid: 51473ac8be62af94bbe7c752433944af, type: 2}
   - UsableObjectName: Epic
-    SpawnChance: 4
+    SpawnChance: 12
     ScoreValue: 22
-    HealthChangeValue: 2
+    TimeToNextSpawnBoost: 0
+    HealthChangeValue: 7
     UsageObjectMesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
     UsageObjectMaterial: {fileID: 2100000, guid: c7ea9abcb339f6047b68b142dfef5ba5, type: 2}
+  - UsableObjectName: Legendary
+    SpawnChance: 4
+    ScoreValue: 13
+    TimeToNextSpawnBoost: 1
+    HealthChangeValue: 2
+    UsageObjectMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    UsageObjectMaterial: {fileID: 2100000, guid: ba0343d2aeaddc3468197207b3d8d708, type: 2}

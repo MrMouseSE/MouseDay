@@ -10,6 +10,7 @@ namespace GameSceneScripts.UsableObjectTypes
         [Range(0,100)]
         public int SpawnChance;
         public int ScoreValue;
+        public float TimeToNextSpawnBoost;
         public float HealthChangeValue;
         public Mesh UsageObjectMesh;
         public Material UsageObjectMaterial;

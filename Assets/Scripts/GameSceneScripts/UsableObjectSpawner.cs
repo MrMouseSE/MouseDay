@@ -52,12 +52,13 @@ namespace GameSceneScripts
         {
             _gameScoreController.UpdateCurrentScore(_currentObjectValues.ScoreValue);
             _scoreText.text = _gameScoreController.GetPlayerData().CurrentScore.ToString();
+            _healthController.UpdateHealth(_currentObjectValues.HealthChangeValue);
+            _timeToNextSpawn += _currentObjectValues.TimeToNextSpawnBoost;
             NextObjectSpawn();
         }
 
         private void NextObjectSpawn()
         {
-        
             _currentObjectValues = _usableObjectTypeResolver.GetObjectType(Random.value);
             _currentUsableObject.SetUsabaleObjectMesh(_currentObjectValues.UsageObjectMesh,_currentObjectValues.UsageObjectMaterial);
             _currentUsableObject.SetObjectNewPosition(GetSpawnPosition());
@@ -72,10 +73,7 @@ namespace GameSceneScripts
             {
                 _timeToNextSpawn -= _gameSettings.ReduceNextSpawnTimeValue;
             }
-            else
-            {
-                _healthController.SetSuddenMode(true);
-            }
+            _healthController.SetSuddenMode(_timeToNextSpawn < _gameSettings.MinimumNextSpawnTimeValue);
 
             if (!_currentUsableObject.IsInUsableAnimation)
             {
