@@ -16,3 +16,4 @@ MonoBehaviour:
   - Difficulty: 0
     GridSize: {x: 20, y: 20}
     CursorRadius: 1.2
+    CameraOffset: 2

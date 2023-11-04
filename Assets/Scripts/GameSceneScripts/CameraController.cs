@@ -11,7 +11,7 @@ namespace GameSceneScripts
 
         private void Awake()
         {
-            _previousPosition = LookTarget.position;
+            _previousPosition = Vector3.zero;
         }
 
         public void SetCameraPosition(float offset)
@@ -26,7 +26,7 @@ namespace GameSceneScripts
             var frwrd = (lookPosition - MyTransform.position).normalized;
             var rght = Vector3.Cross(frwrd, Vector3.up);
             var up = Vector3.Cross(frwrd, rght);
-            MyTransform.rotation = Quaternion.LookRotation(frwrd,up);
+            MyTransform.localRotation = Quaternion.LookRotation(frwrd,up);
             _previousPosition = position;
         }
     }

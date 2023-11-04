@@ -140,7 +140,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     ColorFrom: {r: 0, g: 0, b: 0, a: 0}
     ColorTo: {r: 4.5412054, g: 1.7113382, b: 0.6597599, a: 0}
-  AnimationPlayMaxDelay: 0.22
+  AnimationPlayMaxDelay: 0.27
   MyAnimation: {fileID: 490073572090692708}
   AppearAnimationName: Appear
   DisappearAnimationName: Disappear

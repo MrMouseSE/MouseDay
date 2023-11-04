@@ -7,14 +7,9 @@ namespace GameSceneScripts
     public class BlockerGenerator : MonoBehaviour
     {
         public BlockerController BlockerObject;
+        public Transform MyTransform;
 
         private List<BlockerController> _myGeneratedBlockers;
-        private Transform _myTransform;
-
-        private void Awake()
-        {
-            _myTransform = transform;
-        }
 
         public void GenerateGameGrid(Vector2 gridSize)
         {
@@ -24,7 +19,7 @@ namespace GameSceneScripts
             {
                 for (int j = 0; j < gridSize.y; j++)
                 {
-                    var blocker = Instantiate(BlockerObject, _myTransform);
+                    var blocker = Instantiate(BlockerObject, MyTransform);
                     var currentPosition = initPosition + new Vector3(i, 0, j);
                     blocker.SetPosition(currentPosition);
                     blocker.PlayInitAnimation();

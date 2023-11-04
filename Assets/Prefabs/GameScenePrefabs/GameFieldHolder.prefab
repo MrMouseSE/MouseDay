@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6926febc71c1ecf4999c9694b6304171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GridSize: {x: 20, y: 20}
   BlockerObject: {fileID: 3146063574233922840, guid: e86b04d93dce14940a8bc9dbd2b9c208, type: 3}
+  MyTransform: {fileID: 939990907984424238}
