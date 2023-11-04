@@ -26,6 +26,6 @@ namespace GameSceneScripts
 
 public class CurrentPlayerData
 {
-    public float InitGameTime;
     public int CurrentScore;
+    public float InitGameTime;
 }

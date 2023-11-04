@@ -24,11 +24,11 @@ namespace GameSceneScripts
         private HealthController _healthController;
 
         public void InitUsableObjectSpawner(GameFieldDifficultyContainer settings, List<BlockerController> blockers,
-            TextMeshProUGUI scoreText, HealthController healthController)
+            TextMeshProUGUI scoreText, HealthController healthController, GameScoreController gameScoreController)
         {
             _scoreText = scoreText;
             _healthController = healthController;
-            _gameScoreController = new GameScoreController(Time.time);
+            _gameScoreController = gameScoreController;
             _usableObjectTypeResolver = new UsableObjectTypeResolver(UsableObjectsDescription);
             _gameSettings = settings;
             _positionsToSpawn = blockers;

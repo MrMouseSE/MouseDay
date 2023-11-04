@@ -1,4 +1,5 @@
 using GameSceneScripts.HalthSystem;
+using LeaderBoardScripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,6 +15,8 @@ namespace GameSceneScripts
         public UsableObjectSpawner UsableObjectSpawner;
         public TextMeshProUGUI ScoreCounter;
         public HealthController HealthController;
+        
+        private GameScoreController _gameScoreController;
 
         private void Awake()
         {
@@ -24,14 +27,18 @@ namespace GameSceneScripts
             CursorObjectController.SetCursorRadius(settings.CursorRadius);
             CursorObjectController.ActivateCursorAfterDelay(settings.CursorDelayTime);
             CameraController.SetCameraPosition(settings.CameraOffset);
-            UsableObjectSpawner.InitUsableObjectSpawner(settings, blockerControllers, ScoreCounter, HealthController);
+            _gameScoreController = new GameScoreController(Time.time);
+            UsableObjectSpawner.InitUsableObjectSpawner(settings, blockerControllers, ScoreCounter, HealthController,_gameScoreController);
             HealthController.InitHealthController(settings);
-            HealthController.HealthUnderZero.AddListener(RestartGame);
+            HealthController.HealthUnderZero.AddListener(LoadScoreScene);
         }
 
-        private void RestartGame()
+        private void LoadScoreScene()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            var currentData = _gameScoreController.GetPlayerData();
+            float sessionTime = Time.time - currentData.InitGameTime;
+            LeaderBoardHandler.SaveCurrentProgressToPrefs(currentData.CurrentScore,sessionTime);
+            SceneManager.LoadScene("PlayersScores");
         }
     }
 }
