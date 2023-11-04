@@ -4,7 +4,7 @@ using UnityEngine;
 namespace GameSceneScripts
 {
     [Serializable]
-    public class BlockerColorAnimationHolder
+    public class ColorAnimationHolder
     {
         public float AnimationTime;
         public AnimationCurve ColorAnimationCurve;

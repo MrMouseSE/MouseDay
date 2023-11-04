@@ -8,15 +8,18 @@ namespace GameSceneScripts
         public BlockerGenerator GameBlockerGenerator;
         public CursorObjectController CursorObjectController;
         public CameraController CameraController;
+        public UsableObjectSpawner UsableObjectSpawner;
         
         private void Awake()
         {
             var settings = 
                 GameFieldDescription.GetCurrentDifficultyContainer(PlayerPrefs.GetInt("Difficulty"));
-            GameBlockerGenerator.GenerateGameGrid(settings.GridSize);
+            var blockerControllers = GameBlockerGenerator.GenerateGameGrid(settings.GridSize);
             CursorObjectController.SetCurrentGridSize(settings.GridSize);
             CursorObjectController.SetCursorRadius(settings.CursorRadius);
+            CursorObjectController.ActivateCursorAfterDelay(settings.CursorDelayTime);
             CameraController.SetCameraPosition(settings.CameraOffset);
+            UsableObjectSpawner.InitUsableObjectSpawner(settings,blockerControllers);
         }
     }
 }

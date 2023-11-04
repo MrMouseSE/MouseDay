@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace GameSceneScripts
@@ -20,6 +21,17 @@ namespace GameSceneScripts
         public void SetCursorRadius(float radius)
         {
             CursorObjectCollider.radius = radius;
+        }
+
+        public void ActivateCursorAfterDelay(float time)
+        {
+            StartCoroutine(ActivateCursor(time));
+        }
+
+        private IEnumerator ActivateCursor(float time)
+        {
+            yield return new WaitForSeconds(time);
+            CursorObjectCollider.enabled = true;
         }
     
         private void Start()

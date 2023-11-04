@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,11 +8,9 @@ namespace GameSceneScripts
         public BlockerController BlockerObject;
         public Transform MyTransform;
 
-        private List<BlockerController> _myGeneratedBlockers;
-
-        public void GenerateGameGrid(Vector2 gridSize)
+        public List<BlockerController> GenerateGameGrid(Vector2 gridSize)
         {
-            _myGeneratedBlockers = new List<BlockerController>();
+            var myGeneratedBlockers = new List<BlockerController>();
             Vector3 initPosition = new Vector3(-gridSize.x / 2, 0, -gridSize.y / 2);
             for (int i = 0; i < gridSize.x; i++)
             {
@@ -23,9 +20,11 @@ namespace GameSceneScripts
                     var currentPosition = initPosition + new Vector3(i, 0, j);
                     blocker.SetPosition(currentPosition);
                     blocker.PlayInitAnimation();
-                    _myGeneratedBlockers.Add(blocker);
+                    myGeneratedBlockers.Add(blocker);
                 }
             }
+
+            return myGeneratedBlockers;
         }
     }
 }

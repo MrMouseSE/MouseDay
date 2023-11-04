@@ -7,7 +7,7 @@ namespace GameSceneScripts
     {
         public Transform MyTransform;
         public Renderer MyRenderer;
-        public BlockerColorAnimationHolder MyColorAnimationHolder;
+        public ColorAnimationHolder MyColorAnimationHolder;
         public float AnimationPlayMaxDelay;
         public Animation MyAnimation;
         public string AppearAnimationName;
