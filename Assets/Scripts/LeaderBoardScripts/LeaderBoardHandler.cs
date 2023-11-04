@@ -47,7 +47,7 @@ namespace LeaderBoardScripts
             string saveLeaderData = "";
             foreach (var currentStepData in data)
             {
-                saveLeaderData =  "~" + currentStepData.Name + "`" + currentStepData.Score + "`" + currentStepData.Time;
+                saveLeaderData +=  "~" + currentStepData.Name + "`" + currentStepData.Score + "`" + currentStepData.Time;
             }
             saveLeaderData = saveLeaderData.Remove(0, 1);
             PlayerPrefs.SetString("LeadersData", saveLeaderData);
