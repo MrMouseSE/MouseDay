@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MyUsableObject: {fileID: 8704837524201770902, guid: edcba590e73576f47959ba4b1687b778, type: 3}
+  UsableObjectsDescription: {fileID: 11400000, guid: 9e9fc783ba393684da4617f9f372e34b, type: 2}

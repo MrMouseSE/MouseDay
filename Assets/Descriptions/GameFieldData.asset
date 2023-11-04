@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameDifficultySettings:
   - Difficulty: 0
-    CursorDelayTime: 0.3
+    InitialHealth: 100
     GridSize: {x: 10, y: 10}
     CursorRadius: 1.2
     DefaultTimeToNextSpawn: 6
-    ReduceNextSpawnTimeValue: 0.3
-    MinimumNextSpawnTimeValue: 1
+    ReduceNextSpawnTimeValue: 0.4
+    MinimumNextSpawnTimeValue: 2
+    SuddenDeathReduseValue: 1
+    CursorDelayTime: 0.3
     CameraOffset: -6
