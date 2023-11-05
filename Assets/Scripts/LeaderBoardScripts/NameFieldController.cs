@@ -6,7 +6,7 @@ namespace LeaderBoardScripts
 {
     public class NameFieldController : MonoBehaviour
     {
-        public TextMeshProUGUI NameField;
+        public TMP_InputField NameField;
         public LeadersListController ListController;
 
         public void SaveCurrentScoreWithName()
@@ -14,7 +14,7 @@ namespace LeaderBoardScripts
             string name = NameField.text.ToString();
             name = name.Replace("~", "");
             name = name.Replace("`", "");
-            if (name.Length<2) name = "John Daw";
+            if (name == "") name = "John Daw";
             var currentValues = PlayerPrefs.GetString("currentSessionData").Split("_");
             int score = Convert.ToInt16(currentValues[0]);
             float time = float.Parse(currentValues[1]);
