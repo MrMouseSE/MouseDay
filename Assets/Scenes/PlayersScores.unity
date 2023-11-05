@@ -866,8 +866,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Leaders Board
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d4faa15292d269048a72ab6e83486c7d, type: 2}
-  m_sharedMaterial: {fileID: 9067624749782752858, guid: d4faa15292d269048a72ab6e83486c7d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c20a44459c68f534fae5db491d7200c1, type: 2}
+  m_sharedMaterial: {fileID: 9067624749782752858, guid: c20a44459c68f534fae5db491d7200c1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

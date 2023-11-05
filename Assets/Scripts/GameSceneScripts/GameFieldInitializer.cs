@@ -1,3 +1,4 @@
+using System;
 using GameSceneScripts.HalthSystem;
 using LeaderBoardScripts;
 using TMPro;
@@ -15,13 +16,17 @@ namespace GameSceneScripts
         public UsableObjectSpawner UsableObjectSpawner;
         public TextMeshProUGUI ScoreCounter;
         public HealthController HealthController;
+        public TextMeshProUGUI ScoreMultiply;
         
         private GameScoreController _gameScoreController;
+        private float _scoreMultiplyer = 0.75f;
 
         private void Awake()
         {
             var settings =
                 GameFieldDescription.GetCurrentDifficultyContainer(PlayerPrefs.GetInt("Difficulty"));
+            _scoreMultiplyer = PlayerPrefs.GetFloat("DifficultyMult");
+            ScoreMultiply.text = "x" + _scoreMultiplyer;
             var blockerControllers = GameBlockerGenerator.GenerateGameGrid(settings.GridSize);
             CursorObjectController.SetCurrentGridSize(settings.GridSize);
             CursorObjectController.SetCursorRadius(settings.CursorRadius);
@@ -37,7 +42,8 @@ namespace GameSceneScripts
         {
             var currentData = _gameScoreController.GetPlayerData();
             float sessionTime = Time.time - currentData.InitGameTime;
-            LeaderBoardHandler.SaveCurrentProgressToPrefs(currentData.CurrentScore,sessionTime);
+            int currentRunFinalScore = (int)Math.Round(currentData.CurrentScore * _scoreMultiplyer);
+            LeaderBoardHandler.SaveCurrentProgressToPrefs(currentRunFinalScore,sessionTime);
             SceneManager.LoadScene("PlayersScores");
         }
     }
