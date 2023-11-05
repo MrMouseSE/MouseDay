@@ -6,7 +6,8 @@ namespace GameSceneScripts
     public class BlockerController : MonoBehaviour
     {
         public Transform MyTransform;
-        public Renderer MyRenderer;
+        public GameObject[] MyTrashGameObjects;
+        public Renderer[] MyRenderers;
         public ColorAnimationHolder MyColorAnimationHolder;
         public float AnimationPlayMaxDelay;
         public Animation MyAnimation;
@@ -41,6 +42,14 @@ namespace GameSceneScripts
         {
             yield return new WaitForSeconds(delayTime);
             MyAnimation.Play(isInverted? DisappearAnimationName : AppearAnimationName);
+            if (!isInverted)
+            {
+                foreach (var myTrashGameObject in MyTrashGameObjects)
+                {
+                    myTrashGameObject.gameObject.SetActive(false);
+                }
+                MyTrashGameObjects[Random.Range(0,MyTrashGameObjects.Length)].SetActive(true);
+            }
             StartCoroutine(ChangeColorCoroutine(isInverted));
         }
 
@@ -54,7 +63,10 @@ namespace GameSceneScripts
                 float thisAnimationTime = isInverted ? 1-normalizedTime : normalizedTime;
                 Color currentColor = Color.Lerp(MyColorAnimationHolder.ColorFrom, MyColorAnimationHolder.ColorTo,
                     thisAnimationTime);
-                MyRenderer.material.SetColor("_EmissionColor", currentColor);
+                foreach (var myRenderer in MyRenderers)
+                {
+                    myRenderer.material.SetColor("_EmissionColor", currentColor);
+                }
                 yield return new WaitForEndOfFrame();
             }
         }
