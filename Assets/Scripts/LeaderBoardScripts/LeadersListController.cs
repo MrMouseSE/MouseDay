@@ -7,6 +7,7 @@ namespace LeaderBoardScripts
     public class LeadersListController : MonoBehaviour
     {
         public LeaderHolderContainer LeaderContainer;
+        public float DelayBetweenLinesAppear;
 
         private List<LeaderHolderContainer> _leaderContainers = new List<LeaderHolderContainer>();
         private RectTransform _myRectTransform;
@@ -34,10 +35,11 @@ namespace LeaderBoardScripts
 
         private IEnumerator FillLeadersList(List<LeaderBoardData> leaders)
         {
+            yield return new WaitForSeconds(DelayBetweenLinesAppear);
             for (int i = 0; i < leaders.Count; i++)
             {
                 InstantiateLeaderString(leaders[i], i);
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(DelayBetweenLinesAppear);
             }
         }
 
