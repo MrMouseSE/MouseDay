@@ -5,7 +5,12 @@ namespace MenuButtonsScripts
 {
     public class LeaderBoardButtonsController : MonoBehaviour
     {
-        public void RestartGame()
+        public void MainMenu()
+        {
+            SceneManager.LoadScene("Start");
+        }
+        
+        public void StartGame()
         {
             SceneManager.LoadScene("GameScene");
         }
