@@ -17,6 +17,7 @@ namespace GameSceneScripts
                 for (int j = 0; j < gridSize.y; j++)
                 {
                     var blocker = Instantiate(BlockerObject, MyTransform);
+                    blocker.MyTransform.RotateAround(Vector3.up, Random.Range(0,360));
                     var currentPosition = initPosition + new Vector3(i, 0, j);
                     blocker.SetPosition(currentPosition);
                     blocker.PlayInitAnimation();
