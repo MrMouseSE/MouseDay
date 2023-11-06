@@ -18,26 +18,30 @@ MonoBehaviour:
     ScoreValue: 1
     TimeToNextSpawnBoost: 0
     HealthChangeValue: 0
-    UsageObjectMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    UsageObjectMesh: {fileID: -5764189451640948130, guid: 7c65b45b7f6d34246b053de4bf3b1b51, type: 3}
     UsageObjectMaterial: {fileID: 2100000, guid: a9f8e341f36efe44d905c23dc6079c01, type: 2}
+    UsableObjectPopupSprite: {fileID: 0}
   - UsableObjectName: Rare
     SpawnChance: 19
     ScoreValue: 7
     TimeToNextSpawnBoost: 0
     HealthChangeValue: 3
-    UsageObjectMesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+    UsageObjectMesh: {fileID: -5990578769255957268, guid: ae18afa5a3e0dc54cb628de8f9d0c7dc, type: 3}
     UsageObjectMaterial: {fileID: 2100000, guid: 51473ac8be62af94bbe7c752433944af, type: 2}
+    UsableObjectPopupSprite: {fileID: 21300000, guid: 2ad08cb9a6811af428b10259683757ef, type: 3}
   - UsableObjectName: Epic
     SpawnChance: 7
-    ScoreValue: 22
+    ScoreValue: 15
     TimeToNextSpawnBoost: 0
     HealthChangeValue: 6
-    UsageObjectMesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+    UsageObjectMesh: {fileID: -9090562538933927637, guid: 15d95407c83247e47a8194cf2a187cbf, type: 3}
     UsageObjectMaterial: {fileID: 2100000, guid: c7ea9abcb339f6047b68b142dfef5ba5, type: 2}
+    UsableObjectPopupSprite: {fileID: 21300000, guid: 2ad08cb9a6811af428b10259683757ef, type: 3}
   - UsableObjectName: Legendary
     SpawnChance: 3
     ScoreValue: 13
     TimeToNextSpawnBoost: 1
     HealthChangeValue: 2
-    UsageObjectMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    UsageObjectMesh: {fileID: -819871772298162731, guid: 746eab9710d5b914ab6d7995b93d6710, type: 3}
     UsageObjectMaterial: {fileID: 2100000, guid: ba0343d2aeaddc3468197207b3d8d708, type: 2}
+    UsableObjectPopupSprite: {fileID: 21300000, guid: a9411e109a7f83946a1352497a2acbd0, type: 3}
