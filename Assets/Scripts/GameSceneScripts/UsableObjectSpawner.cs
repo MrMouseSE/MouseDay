@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using GameSceneScripts.ClockSystem;
 using GameSceneScripts.HalthSystem;
 using GameSceneScripts.UsableObjectTypes;
 using TMPro;
@@ -12,6 +13,8 @@ namespace GameSceneScripts
     {
         public UsableObjectController MyUsableObject;
         public UsableObjectsDescription UsableObjectsDescription;
+        public ClockController Clock;
+        public PopupController Popup;
 
         private TextMeshProUGUI _scoreText;
         private UsableObjectController _currentUsableObject;
@@ -39,13 +42,19 @@ namespace GameSceneScripts
         private void InitSpawnUsableObject()
         {
             _currentUsableObject = Instantiate(MyUsableObject, transform);
-            _currentUsableObject.ObjectUsed.AddListener(ObjectUsed);
+            _currentUsableObject.ObjectUsedEnd.AddListener(ObjectUsed);
+            _currentUsableObject.ObjectUsedStart.AddListener(ActivatePopup);
             NextObjectSpawn();
         }
 
         private Vector3 GetSpawnPosition()
         {
             return _positionsToSpawn[Random.Range(0, _positionsToSpawn.Count)].MyTransform.position;
+        }
+
+        private void ActivatePopup()
+        {
+            Popup.StartPopup(_currentUsableObject.MyTransform.position,_currentObjectValues.UsableObjectPopupSprite);
         }
 
         private void ObjectUsed()
@@ -59,6 +68,7 @@ namespace GameSceneScripts
 
         private void NextObjectSpawn()
         {
+            Clock.StartTimeConter(_timeToNextSpawn);
             _currentObjectValues = _usableObjectTypeResolver.GetObjectType(Random.value);
             _currentUsableObject.SetUsabaleObjectMesh(_currentObjectValues.UsageObjectMesh,_currentObjectValues.UsageObjectMaterial);
             _currentUsableObject.SetObjectNewPosition(GetSpawnPosition());
@@ -85,7 +95,8 @@ namespace GameSceneScripts
 
         private void OnDestroy()
         {
-            _currentUsableObject.ObjectUsed.RemoveListener(ObjectUsed);
+            _currentUsableObject.ObjectUsedEnd.RemoveListener(ObjectUsed);
+            _currentUsableObject.ObjectUsedEnd.RemoveListener(ActivatePopup);
         }
     }
 }

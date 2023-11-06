@@ -14,5 +14,6 @@ namespace GameSceneScripts.UsableObjectTypes
         public float HealthChangeValue;
         public Mesh UsageObjectMesh;
         public Material UsageObjectMaterial;
+        public Sprite UsableObjectPopupSprite;
     }
 }

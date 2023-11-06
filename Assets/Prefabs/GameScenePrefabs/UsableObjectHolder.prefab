@@ -5022,7 +5022,10 @@ MonoBehaviour:
   UseAnimationName: UseAnimation
   IdleAnimationName: IdleAnimation
   IsInUsableAnimation: 0
-  ObjectUsed:
+  ObjectUsedEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  ObjectUsedStart:
     m_PersistentCalls:
       m_Calls: []
 --- !u!111 &6007680591178977595
@@ -5091,7 +5094,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.47237468, y: 0.44390982, z: 0.5337349, w: 0.5430777}
   m_LocalPosition: {x: 0.003932953, y: 0.3640672, z: -0.007903576}
-  m_LocalScale: {x: 0.77903, y: 0.49751973, z: 0.77903}
+  m_LocalScale: {x: 0.77903, y: 0.77903, z: 0.77903}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2270254896870177469}

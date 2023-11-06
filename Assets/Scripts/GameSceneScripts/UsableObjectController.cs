@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace GameSceneScripts
 {
@@ -16,10 +17,12 @@ namespace GameSceneScripts
         public string UseAnimationName;
         public string IdleAnimationName;
 
-        [HideInInspector] public bool IsInUsableAnimation;
-
+        [HideInInspector] public bool IsInUsableAnimation; 
         [HideInInspector]
-        public UnityEvent ObjectUsed;
+        public UnityEvent ObjectUsedEnd;
+        
+        [HideInInspector]
+        public UnityEvent ObjectUsedStart;
 
         public void SetObjectNewPosition(Vector3 position)
         {
@@ -43,6 +46,7 @@ namespace GameSceneScripts
         private IEnumerator StartColorAnimation()
         {
             float currentTime = MyColorAnimationHolder.AnimationTime;
+            ObjectUsedStart?.Invoke();
             while (currentTime>0)
             {
                 currentTime -= Time.deltaTime;
@@ -55,7 +59,7 @@ namespace GameSceneScripts
             MyParticles.Play();
             yield return new WaitForSeconds(MyParticles.main.duration);
             IsInUsableAnimation = false;
-            ObjectUsed.Invoke();
+            ObjectUsedEnd.Invoke();
         }
     }
 }
