@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fdb9d35cc7a5a245881f5a8eae1d4a1, type: 3}
+  m_Name: GameFieldData
+  m_EditorClassIdentifier: 
+  GameDifficultySettings:
+  - Difficulty: 0
+    InitialHealth: 100
+    GridSize: {x: 10, y: 10}
+    CursorRadius: 1.2
+    DefaultTimeToNextSpawn: 6
+    ReduceNextSpawnTimeValue: 0.4
+    MinimumNextSpawnTimeValue: 2
+    SuddenDeathReduseValue: 1
+    CursorDelayTime: 0.3
+    CameraOffset: -6
+  - Difficulty: 1
+    InitialHealth: 100
+    GridSize: {x: 12, y: 12}
+    CursorRadius: 1.05
+    DefaultTimeToNextSpawn: 5
+    ReduceNextSpawnTimeValue: 0.45
+    MinimumNextSpawnTimeValue: 2
+    SuddenDeathReduseValue: 1.15
+    CursorDelayTime: 0.3
+    CameraOffset: -3.4
+  - Difficulty: 2
+    InitialHealth: 100
+    GridSize: {x: 14, y: 14}
+    CursorRadius: 0.85
+    DefaultTimeToNextSpawn: 5
+    ReduceNextSpawnTimeValue: 0.55
+    MinimumNextSpawnTimeValue: 1.9
+    SuddenDeathReduseValue: 1.3
+    CursorDelayTime: 0.3
+    CameraOffset: -2.56
